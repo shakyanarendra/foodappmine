@@ -10,7 +10,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { MenuFormSchema, menuSchema } from "@/schema/MenuSchema";
-import { MenuItem } from "@/types/restaurantTypes";
 import { useMenuStore } from "@/zustand/useMenuStore";
 import { Loader2 } from "lucide-react";
 import {
@@ -25,7 +24,7 @@ const EditMenu = ({
   editOpen,
   setEditOpen,
 }: {
-  selectedMenu: MenuItem;
+  selectedMenu: MenuFormSchema;
   editOpen: boolean;
   setEditOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
@@ -159,13 +158,13 @@ const EditMenu = ({
             {loading ? (
               <Button
                 disabled
-                className="text-white dark:bg-gray-100 hover:dark:bg-gray-200 dark:text-black hover:bg-hoverOrange"
+                className="text-white dark:bg-gray-100 hover:dark:bg-gray-200 dark:text-black hover:bg-gray-600"
               >
                 <Loader2 className="mr-2 w-4 h-4 animate-spin" />
                 Please Wait
               </Button>
             ) : (
-              <Button className="text-white dark:bg-gray-100 hover:dark:bg-gray-200 dark:text-black hover:bg-hoverOrange">
+              <Button className="text-white dark:bg-gray-100 hover:dark:bg-gray-200 dark:text-black hover:bg-gray-500">
                 Submit
               </Button>
             )}

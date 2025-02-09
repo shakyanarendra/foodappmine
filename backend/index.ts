@@ -1,19 +1,21 @@
 import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./db/connectDB";
+
 import cookieParser from "cookie-parser";
 import cors from "cors";
+
+// Importing routes
 import userRoute from "./routes/userroutes";
 import restaurantRoute from "./routes/restaurantroutes";
 import menuRoutes from "./routes/menuroutes";
 import orderRoutes from "./routes/orderroutes";
-import path from "path"
 
+// Load environment variables
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const DIRNAME=path.resolve();
 
 // Middleware
 app.use(express.json({ limit: "30mb" }));
@@ -32,10 +34,7 @@ app.use("/api/v1/user", userRoute);
 app.use("/api/v1/restaurant", restaurantRoute);
 app.use("/api/v1/menu", menuRoutes);
 app.use("/api/v1/order", orderRoutes);
-app.use(express.static(path.join(DIRNAME,"/frontend/dist")));
-app.use("*",(_,res)=>{
-  res.sendFile(path.resolve(DIRNAME,"frontend","dist","index.html"));
-})
+
 
 app.listen(PORT, () => {
   connectDB();

@@ -68,7 +68,7 @@ const Restaurant = () => {
   useEffect(() => {
     const fetchRestaurant = async () => {
       await getRestaurant();
-      if(restaurant){
+      if (restaurant) {
         setInput({
           restaurantName: restaurant.restaurantName || "",
           city: restaurant.city || "",
@@ -79,11 +79,10 @@ const Restaurant = () => {
             : [],
           imageFile: undefined,
         });
-      };
       }
+    };
     fetchRestaurant();
     console.log(restaurant);
-    
   }, []);
 
   return (
@@ -193,12 +192,12 @@ const Restaurant = () => {
             </div>
             <div className="my-5 w-fit">
               {loading ? (
-                <Button disabled className="bg-orange hover:bg-hoverOrange">
+                <Button disabled className="bg-gray-800 hover:bg-gray-600 text-white">
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                   Please wait
                 </Button>
               ) : (
-                <Button className="bg-orange hover:bg-hoverOrange">
+                <Button className="bg-gray-800 hover:bg-gray-600 text-white">
                   {restaurant
                     ? "Update Your Restaurant"
                     : "Add Your Restaurant"}

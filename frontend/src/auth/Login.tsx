@@ -16,6 +16,7 @@ const Login = () => {
 
   const [errors, setError] = useState<Partial<LoginInputState>>({});
   const { login, loading } = useUserStore();
+
   const changeEventHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setInput({ ...input, [name]: value });
